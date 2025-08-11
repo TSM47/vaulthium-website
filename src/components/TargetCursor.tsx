@@ -13,8 +13,8 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
   hideDefaultCursor = true,
 }) => {
   const cursorRef = useRef<HTMLDivElement>(null);
-  const cornersRef = useRef<NodeListOf<HTMLDivElement>>(null);
-  const spinTl = useRef<gsap.core.Timeline>(null);
+  const cornersRef = useRef<NodeListOf<HTMLDivElement> | null>(null);
+  const spinTl = useRef<gsap.core.Timeline | null>(null);
   const dotRef = useRef<HTMLDivElement>(null);
   const constants = useMemo(
     () => ({
@@ -59,9 +59,10 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
     }
 
     const cursor = cursorRef.current;
-    cornersRef.current = cursor.querySelectorAll<HTMLDivElement>(
+    const corners = cursor.querySelectorAll<HTMLDivElement>(
       ".target-cursor-corner"
     );
+    cornersRef.current = corners;
 
     let activeTarget: Element | null = null;
     let currentTargetMove: ((ev: Event) => void) | null = null;

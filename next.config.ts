@@ -7,6 +7,17 @@ const nextConfig: NextConfig = {
     unoptimized: true
   },
   basePath: process.env.NODE_ENV === 'production' ? '/vaulthium-website' : '',
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        net: false,
+        tls: false,
+      };
+    }
+    return config;
+  },
 };
 
 export default nextConfig;

@@ -11,6 +11,9 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Vaulthium Website",
   description: "Build apps faster with ui components",
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({

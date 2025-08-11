@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Vaultium Website
 
-## Getting Started
+Nowoczesna strona internetowa zbudowana w Next.js 15 z TypeScript i Tailwind CSS.
 
-First, run the development server:
+## Wymagania
+
+- Node.js 18+ (zalecane 20+)
+- npm 9+
+
+## Instalacja
+
+```bash
+npm install
+```
+
+## Rozwój lokalny
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Strona będzie dostępna pod adresem [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Budowanie
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+## Eksport statyczny
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run export
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Rozwiązywanie problemów
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Błędy webpack podczas budowania
 
-## Deploy on Vercel
+Jeśli napotkasz błędy webpack podczas budowania na GitHub Actions:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Upewnij się, że używasz Node.js 20+
+2. Sprawdź, czy wszystkie zależności są zainstalowane: `npm ci`
+3. Wyczyść cache: `rm -rf .next out node_modules package-lock.json && npm install`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Problemy z TypeScript
+
+- Sprawdź wersje `@types/react` i `@types/react-dom` - powinny być kompatybilne z wersją React
+- Użyj `npm run lint` aby sprawdzić błędy TypeScript
+
+### Problemy z zależnościami
+
+- Usuń `node_modules` i `package-lock.json`
+- Uruchom `npm install` ponownie
+
+## Struktura projektu
+
+```
+src/
+├── app/           # App Router (Next.js 13+)
+├── components/    # Komponenty React
+└── lib/          # Narzędzia i funkcje pomocnicze
+```
+
+## Technologie
+
+- **Framework**: Next.js 15
+- **Język**: TypeScript
+- **Styling**: Tailwind CSS
+- **Animacje**: GSAP
+- **Deployment**: GitHub Pages
+
+## Licencja
+
+MIT
