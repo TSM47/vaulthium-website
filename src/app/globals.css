@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: var(--font-poppins), sans-serif;
+  }
+}
+
+/* Dodatkowe style dla komponentów */
+@layer components {
+  .border-3 {
+    border-width: 3px;
+  }
+}
