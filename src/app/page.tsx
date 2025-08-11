@@ -2,8 +2,6 @@
 
 import { useState } from 'react';
 import TargetCursor from '../components/TargetCursor';
-import WordListSwap from '../components/WordListSwap';
-import { LayoutGroup, motion } from 'motion/react';
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
